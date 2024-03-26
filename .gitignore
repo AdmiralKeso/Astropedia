@@ -24,3 +24,5 @@ TestResults.xml
 myve/
 #Python cache files
 __pycache__/
+#Database credentials
+.env
