@@ -9,4 +9,10 @@ class Post(models.Model):
 )
 date_create = models.DateTimeField(auto_now_add=True)
 STATUS = ((0, "Draft"), (1, "Published"))
-status = models.IntegerField(choices=STATUS, default=0)
+status = models.IntegerField(choices=STATUS, default=0)    upvotes = models.ManyToManyField(User, related_name="upvote_posts", blank=True)
+    downvotes = models.ManyToManyField(User, related_name="downvote_posts", blank=True)
+    def total_upvotes(self):
+        return self.upvotes.count()
+
+    def total_downvotes(self):
+        return self.downvotes.count()
