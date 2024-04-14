@@ -4,7 +4,7 @@ from django.db import models
 
 class Post(models.Model):
     title = models.CharField(max_length=40, unique=True)
-    text = models.TextField(max_length=400)
+    text = models.TextField()
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
